@@ -1,0 +1,9 @@
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\bin\Debug\gskewed.exe.config
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\bin\Debug\gskewed.exe
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\bin\Debug\gskewed.pdb
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\obj\Debug\gskewed.csprojResolveAssemblyReference.cache
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\obj\Debug\gskewed.Form1.resources
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\obj\Debug\gskewed.Properties.Resources.resources
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\obj\Debug\gskewed.csproj.GenerateResource.Cache
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\obj\Debug\gskewed.exe
+C:\Users\Blake Burton\Desktop\arch 2016\gskewed\gskewed\obj\Debug\gskewed.pdb
