@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace gskewed.support_Classes
 {
-    class behaviorHistoryTable
+    class PredictionHistoryTable
     {
 
         private int[] table;
@@ -17,7 +17,7 @@ namespace gskewed.support_Classes
         private int BHTSize;
         private int p;
 
-        public behaviorHistoryTable(int size, int initValue = 2)
+        public PredictionHistoryTable(int size, int initValue = 2)
         {
             BHTSize = size;
             table = new int[size];

@@ -50,11 +50,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Predictors\AgreePredictor.cs" />
     <Compile Include="Predictors\Gselect.cs" />
+    <Compile Include="Predictors\GShare.cs" />
+    <Compile Include="Predictors\GSkew.cs" />
+    <Compile Include="Predictors\TwoLevelPredictorLocalHistory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="support Classes\behaviorHistoryTable.cs" />
-    <Compile Include="support Classes\history.cs" />
+    <Compile Include="support Classes\LocalBranchHistoryTable.cs" />
+    <Compile Include="support Classes\PredictionHistoryTable.cs" />
+    <Compile Include="support Classes\BranchHistoryReg.cs" />
     <Compile Include="support Classes\Operators.cs" />
     <Compile Include="support Classes\Results.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -14,7 +14,7 @@ namespace gskewed.Predictors
         public static support_Classes.Results run(int BHTSize, int historySize, String filePath)
         {
             support_Classes.Results results = new support_Classes.Results();
-            support_Classes.behaviorHistoryTable BHT = new support_Classes.behaviorHistoryTable(BHTSize, INIT_BHT_VAL);
+            support_Classes.PredictionHistoryTable BHT = new support_Classes.PredictionHistoryTable(BHTSize, INIT_BHT_VAL);
             support_Classes.History history = new support_Classes.History(historySize, 0);
 
             int missPredic = 0;
