@@ -18,11 +18,11 @@ namespace gskewed
         {
             InitializeComponent();
             cbMethod.SelectedIndex = 0;
-            tbTraceFileName.Text = @"Z:\Desktop\Fall 2016\arch\term project\parseing\gcc-50M_parsed_sper_small.trace";
+            tbTraceFileName.Text = @"Z:\Desktop\Fall 2016\arch\term project\parsed\art-100M_parsed.trace";
 
             cbMethod.SelectedIndex = 1;
-            tbBHTEnties.Text = "2";
-            tbGlobalHistSize.Text = "4";
+            tbBHTEnties.Text = "65536";
+            tbGlobalHistSize.Text = "16";
             tbBitsInPC.Text = "24";
         }
 

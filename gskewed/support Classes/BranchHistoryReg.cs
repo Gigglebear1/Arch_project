@@ -27,16 +27,13 @@ namespace gskewed.support_Classes
             history.Enqueue(hist);
         }
 
-        public int getHistory(){
+        public long getHistory(){
             String hist = "";
             foreach (int i in this.history)
             {
                 hist += i.ToString();
             }
-
-            
-
-            return Convert.ToInt32(hist,2);
+            return Convert.ToInt64(hist,2);
         }
 
     }

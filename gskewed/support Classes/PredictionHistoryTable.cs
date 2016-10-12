@@ -25,14 +25,14 @@ namespace gskewed.support_Classes
                 table[i] = initValue;
         }
 
-        public void editEntry(int entry, bool taken){
+        public void editEntry(long entry, bool taken){
             if (taken && table[entry % BHTSize] != COUNTER_MAX)
                 table[entry % BHTSize] += 1;
             else if (!taken && table[entry % BHTSize] != COUNTER_MIN)
                 table[entry % BHTSize] -= 1;
         }
 
-        public bool shoudTake(int entry){
+        public bool shoudTake(long entry){
             return table[entry % BHTSize] >= ShouldTakeValue;
         }
 

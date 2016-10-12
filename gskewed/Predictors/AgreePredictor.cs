@@ -36,7 +36,7 @@ namespace gskewed.Predictors
                     String pathResult = line.Split(new char[0])[1];
 
                     //concat pc and globalHistory and get number 
-                    int concat = support_Classes.Operators.XOR(Convert.ToInt32(pc, 16), globalHistory.getHistory());
+                    long concat = support_Classes.Operators.XOR(Convert.ToInt32(pc, 16), globalHistory.getHistory());
 
                     //look at the PHT entry and get the prediction 
                     bool predictionfromPHT = PHT.shoudTake(concat);

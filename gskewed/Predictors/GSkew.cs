@@ -8,5 +8,6 @@ namespace gskewed.Predictors
 {
     class GSkew
     {
+        //that explains why nothing was returned to UI (-_-)
     }
 }
