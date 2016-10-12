@@ -57,7 +57,7 @@
     <Compile Include="Predictors\TwoLevelPredictorLocalHistory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="support Classes\LocalBranchHistoryTable.cs" />
+    <Compile Include="support Classes\BiasBitTable.cs" />
     <Compile Include="support Classes\PredictionHistoryTable.cs" />
     <Compile Include="support Classes\BranchHistoryReg.cs" />
     <Compile Include="support Classes\Operators.cs" />

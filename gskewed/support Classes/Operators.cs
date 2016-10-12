@@ -15,5 +15,10 @@ namespace gskewed.support_Classes
         public static int concat(int a, int b) {
             return Convert.ToInt32(Convert.ToString(a,2) + Convert.ToString(b,2),2);
         }
+
+        public static bool NOR(bool a, bool b)
+        {
+            return a == b;
+        }
     }
 }

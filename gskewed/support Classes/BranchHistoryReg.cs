@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace gskewed.support_Classes
 {
-    class History
+    class BranchHistoryReg
     {
         private Queue<int> history;
         private int limit;
 
-        public History(int size, int initvalue = 0)
+        public BranchHistoryReg(int size, int initvalue = 0)
         {
             limit = size;
             history = new Queue<int>();

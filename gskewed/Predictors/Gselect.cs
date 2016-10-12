@@ -15,7 +15,7 @@ namespace gskewed.Predictors
         {
             support_Classes.Results results = new support_Classes.Results();
             support_Classes.PredictionHistoryTable BHT = new support_Classes.PredictionHistoryTable(BHTSize, INIT_BHT_VAL);
-            support_Classes.History history = new support_Classes.History(historySize, 0);
+            support_Classes.BranchHistoryReg history = new support_Classes.BranchHistoryReg(historySize, 0);
 
             int missPredic = 0;
             int totalPredictions = 0;
@@ -31,14 +31,14 @@ namespace gskewed.Predictors
                     String pc = line.Split(new char[0])[0];
                     String pathResult = line.Split(new char[0])[1];
 
-                    //concat pc and history and get number 
+                    //concat pc and globalHistory and get number 
                     int concat = support_Classes.Operators.concat(Convert.ToInt32(pc, 16), history.getHistory());
 
-                    //look at the BHT entry and get the prediction 
+                    //look at the PHT entry and get the prediction 
                     bool prediction = BHT.shoudTake(concat);
                     bool actual = pathResult.Equals("T");
 
-                    //update the BHT entry
+                    //update the PHT entry
                     BHT.editEntry(concat, actual);
                     history.pushHistory(Convert.ToInt32(actual));
 
