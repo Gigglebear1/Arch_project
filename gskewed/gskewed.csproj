@@ -51,6 +51,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Predictors\AgreePredictor.cs" />
+    <Compile Include="Predictors\AlwaysDontTake.cs" />
+    <Compile Include="Predictors\AlwaysTake.cs" />
     <Compile Include="Predictors\Gselect.cs" />
     <Compile Include="Predictors\GShare.cs" />
     <Compile Include="Predictors\GSkew.cs" />

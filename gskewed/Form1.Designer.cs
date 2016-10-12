@@ -45,12 +45,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbBitsInPC = new System.Windows.Forms.TextBox();
+            this.lbNumBitsInPC = new System.Windows.Forms.Label();
             this.lbNote = new System.Windows.Forms.Label();
             this.tbBiasTagSize = new System.Windows.Forms.TextBox();
             this.lbBiasTagSize = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbBitsInPC = new System.Windows.Forms.TextBox();
-            this.lbNumBitsInPC = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +90,9 @@
             "Gselect ",
             "Gskewed",
             "Agree Predictor",
-            "Two-level predictor local history"});
+            "Two-level predictor local history",
+            "Always Take",
+            "Always Dont Take"});
             this.cbMethod.Location = new System.Drawing.Point(401, 139);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(259, 33);
@@ -226,6 +228,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parameters";
             // 
+            // tbBitsInPC
+            // 
+            this.tbBitsInPC.Location = new System.Drawing.Point(401, 278);
+            this.tbBitsInPC.Name = "tbBitsInPC";
+            this.tbBitsInPC.Size = new System.Drawing.Size(259, 31);
+            this.tbBitsInPC.TabIndex = 21;
+            this.tbBitsInPC.Visible = false;
+            // 
+            // lbNumBitsInPC
+            // 
+            this.lbNumBitsInPC.AutoSize = true;
+            this.lbNumBitsInPC.Location = new System.Drawing.Point(49, 278);
+            this.lbNumBitsInPC.Name = "lbNumBitsInPC";
+            this.lbNumBitsInPC.Size = new System.Drawing.Size(207, 25);
+            this.lbNumBitsInPC.TabIndex = 20;
+            this.lbNumBitsInPC.Text = "Number of Bits in Pc";
+            this.lbNumBitsInPC.Visible = false;
+            // 
             // lbNote
             // 
             this.lbNote.AutoSize = true;
@@ -268,24 +288,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results";
-            // 
-            // tbBitsInPC
-            // 
-            this.tbBitsInPC.Location = new System.Drawing.Point(401, 278);
-            this.tbBitsInPC.Name = "tbBitsInPC";
-            this.tbBitsInPC.Size = new System.Drawing.Size(259, 31);
-            this.tbBitsInPC.TabIndex = 21;
-            this.tbBitsInPC.Visible = false;
-            // 
-            // lbNumBitsInPC
-            // 
-            this.lbNumBitsInPC.AutoSize = true;
-            this.lbNumBitsInPC.Location = new System.Drawing.Point(49, 278);
-            this.lbNumBitsInPC.Name = "lbNumBitsInPC";
-            this.lbNumBitsInPC.Size = new System.Drawing.Size(207, 25);
-            this.lbNumBitsInPC.TabIndex = 20;
-            this.lbNumBitsInPC.Text = "Number of Bits in Pc";
-            this.lbNumBitsInPC.Visible = false;
             // 
             // Form1
             // 

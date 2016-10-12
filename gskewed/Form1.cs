@@ -62,6 +62,12 @@ namespace gskewed
                 case 4:
                     res = Predictors.TwoLevelPredictorLocalHistory.run(Convert.ToInt32(tbBHTEnties.Text), Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
+                case 5:
+                    res = Predictors.AlwaysTake.run(tbTraceFileName.Text);
+                    break;
+                case 6:
+                    res = Predictors.AlwaysDontTake.run(tbTraceFileName.Text);
+                    break;
             }
            
 

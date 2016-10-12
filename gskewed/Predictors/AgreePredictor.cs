@@ -74,14 +74,6 @@ namespace gskewed.Predictors
 
                     totalPredictions += 1;
 
-
-
-
-
-
-
-
-
                 }
             }
 
