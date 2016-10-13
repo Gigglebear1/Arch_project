@@ -17,6 +17,7 @@ namespace gskewed.Predictors
             support_Classes.PredictionHistoryTable PHT = new support_Classes.PredictionHistoryTable(BHTSize, INIT_BHT_VAL);
             support_Classes.BranchHistoryReg history = new support_Classes.BranchHistoryReg(historySize, 0);
 
+            int logOfEneries = (int)Math.Log(BHTSize, 2);
             int missPredic = 0;
             int totalPredictions = 0;
 
@@ -32,7 +33,7 @@ namespace gskewed.Predictors
                     String pathResult = line.Split(new char[0])[1];
 
                     //concat pc and globalHistory and get number 
-                    long concat = support_Classes.Operators.XOR(Convert.ToInt64(pc, 16), history.getHistory());
+                    long concat = support_Classes.Operators.XOR(pc, history.getHistory(), logOfEneries);
 
                     //look at the PHT entry and get the prediction 
                     bool prediction = PHT.shoudTake(concat);

@@ -31,7 +31,7 @@ namespace gskewed.Predictors
                     String pc = line.Split(new char[0])[0];
                     String pathResult = line.Split(new char[0])[1];
 
-                    long hist = history.getHistory();
+                    long hist = Convert.ToInt64(history.getHistory(),2);
 
                     //look at the PHT entry and get the prediction 
                     bool prediction = BHT.shoudTake(hist);

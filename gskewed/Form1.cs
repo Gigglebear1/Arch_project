@@ -44,6 +44,9 @@ namespace gskewed
             //pass in (PHT size, globalHistory size, file path)
             //fire off on new thread 
 
+
+            Console.WriteLine(support_Classes.Operators.XOR("10010", "10", 4));
+
             support_Classes.Results res = new support_Classes.Results();
 
             switch (cbMethod.SelectedIndex)

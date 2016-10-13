@@ -21,6 +21,7 @@ namespace gskewed.Predictors
             support_Classes.BranchHistoryReg globalHistory = new support_Classes.BranchHistoryReg(historySize, 0);
             support_Classes.BiasBitTable BTB = new support_Classes.BiasBitTable(BTBBitsInPc, BTBTagSize);
 
+            int logOfEneries = (int)Math.Log(BHTSize, 2);
             int missPredic = 0;
             int totalPredictions = 0;
 
@@ -36,10 +37,10 @@ namespace gskewed.Predictors
                     String pathResult = line.Split(new char[0])[1];
 
                     //concat pc and globalHistory and get number 
-                    long concat = support_Classes.Operators.XOR(Convert.ToInt32(pc, 16), globalHistory.getHistory());
+                    long xor = support_Classes.Operators.XOR(pc, globalHistory.getHistory(), logOfEneries);
 
                     //look at the PHT entry and get the prediction 
-                    bool predictionfromPHT = PHT.shoudTake(concat);
+                    bool predictionfromPHT = PHT.shoudTake(xor);
                     bool actual = pathResult.Equals("T");
 
                     String pcBinaryStr = Convert.ToString(Convert.ToInt64(pc, 16), 2).PadLeft(24, '0');
@@ -65,7 +66,7 @@ namespace gskewed.Predictors
 
 
                     //update the PHT entry and globalHistory
-                    PHT.editEntry(concat, actual);
+                    PHT.editEntry(xor, actual);
                     globalHistory.pushHistory(Convert.ToInt32(actual));
 
                     // update miss and totalpredictions
