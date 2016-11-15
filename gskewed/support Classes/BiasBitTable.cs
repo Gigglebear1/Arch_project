@@ -11,17 +11,17 @@ namespace gskewed.support_Classes
     class BiasBitTable
     {
         private int tagSize;
-        private int numEntries;
+        private long numEntries;
         Entry[] BTB;
 
-        public BiasBitTable(int bitsInPC, int tagSize_in)
+        public BiasBitTable(int numEntries_in)
         {
-            tagSize = tagSize_in;
-            numEntries = (int)Math.Pow(2, bitsInPC - tagSize_in);
-            BTB = new Entry[numEntries];
+            tagSize = (int)Math.Log(numEntries_in, 2);
+            numEntries = numEntries_in;
+            BTB = new Entry[numEntries_in];
             for (int i = 0; i < numEntries; ++i)
             {
-                //cant have a negative tag so it is safe to declare it with that 
+                //cant have PC negative tag so it is safe to declare it with that 
                 BTB[i] = new Entry(-1,true);
             }
         }
@@ -47,7 +47,7 @@ namespace gskewed.support_Classes
         }
 
         /// <summary>
-        /// takes in a bitAddr String 
+        /// takes in PC bitAddr String 
         /// </summary>
         /// <param name="bitAddr"></param>
         /// <param name="bit"></param>

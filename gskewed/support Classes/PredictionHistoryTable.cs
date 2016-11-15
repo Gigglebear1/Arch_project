@@ -33,7 +33,7 @@ namespace gskewed.support_Classes
         }
 
         public bool shoudTake(long entry){
-            return table[entry % BHTSize] >= ShouldTakeValue;
+            return table[entry] >= ShouldTakeValue;
         }
 
         public int size(){

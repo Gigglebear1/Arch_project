@@ -45,11 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbBitsInPC = new System.Windows.Forms.TextBox();
-            this.lbNumBitsInPC = new System.Windows.Forms.Label();
-            this.lbNote = new System.Windows.Forms.Label();
-            this.tbBiasTagSize = new System.Windows.Forms.TextBox();
-            this.lbBiasTagSize = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,11 +53,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 38);
+            this.label1.Location = new System.Drawing.Point(17, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 25);
+            this.label1.Size = new System.Drawing.Size(425, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Entries in PHT (Pattern Hist Table)";
+            this.label1.Text = "Addressing Bits in PHT (Pattern Hist Table)";
             // 
             // label2
             // 
@@ -90,28 +85,28 @@
             "Gselect ",
             "Gskewed",
             "Agree Predictor",
-            "Two-level predictor local history",
+            "Local history",
             "Always Take",
             "Always Dont Take"});
-            this.cbMethod.Location = new System.Drawing.Point(401, 139);
+            this.cbMethod.Location = new System.Drawing.Point(463, 139);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(259, 33);
             this.cbMethod.TabIndex = 3;
-            this.cbMethod.SelectedIndexChanged += new System.EventHandler(this.cbMethod_SelectedIndexChanged);
             // 
             // tbGlobalHistSize
             // 
-            this.tbGlobalHistSize.Location = new System.Drawing.Point(401, 88);
+            this.tbGlobalHistSize.Location = new System.Drawing.Point(463, 88);
             this.tbGlobalHistSize.Name = "tbGlobalHistSize";
             this.tbGlobalHistSize.Size = new System.Drawing.Size(259, 31);
             this.tbGlobalHistSize.TabIndex = 4;
             // 
             // tbBHTEnties
             // 
-            this.tbBHTEnties.Location = new System.Drawing.Point(401, 32);
+            this.tbBHTEnties.Location = new System.Drawing.Point(463, 32);
             this.tbBHTEnties.Name = "tbBHTEnties";
             this.tbBHTEnties.Size = new System.Drawing.Size(259, 31);
             this.tbBHTEnties.TabIndex = 5;
+            this.tbBHTEnties.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBHTEnties_KeyPress);
             // 
             // button1
             // 
@@ -206,11 +201,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tbBitsInPC);
-            this.groupBox1.Controls.Add(this.lbNumBitsInPC);
-            this.groupBox1.Controls.Add(this.lbNote);
-            this.groupBox1.Controls.Add(this.tbBiasTagSize);
-            this.groupBox1.Controls.Add(this.lbBiasTagSize);
             this.groupBox1.Controls.Add(this.tbGlobalHistSize);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.cbMethod);
@@ -227,52 +217,6 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parameters";
-            // 
-            // tbBitsInPC
-            // 
-            this.tbBitsInPC.Location = new System.Drawing.Point(401, 278);
-            this.tbBitsInPC.Name = "tbBitsInPC";
-            this.tbBitsInPC.Size = new System.Drawing.Size(259, 31);
-            this.tbBitsInPC.TabIndex = 21;
-            this.tbBitsInPC.Visible = false;
-            // 
-            // lbNumBitsInPC
-            // 
-            this.lbNumBitsInPC.AutoSize = true;
-            this.lbNumBitsInPC.Location = new System.Drawing.Point(49, 278);
-            this.lbNumBitsInPC.Name = "lbNumBitsInPC";
-            this.lbNumBitsInPC.Size = new System.Drawing.Size(207, 25);
-            this.lbNumBitsInPC.TabIndex = 20;
-            this.lbNumBitsInPC.Text = "Number of Bits in Pc";
-            this.lbNumBitsInPC.Visible = false;
-            // 
-            // lbNote
-            // 
-            this.lbNote.AutoSize = true;
-            this.lbNote.Location = new System.Drawing.Point(79, 228);
-            this.lbNote.Name = "lbNote";
-            this.lbNote.Size = new System.Drawing.Size(272, 25);
-            this.lbNote.TabIndex = 19;
-            this.lbNote.Text = "(note PC is 24 bit in traces)";
-            this.lbNote.Visible = false;
-            // 
-            // tbBiasTagSize
-            // 
-            this.tbBiasTagSize.Location = new System.Drawing.Point(401, 204);
-            this.tbBiasTagSize.Name = "tbBiasTagSize";
-            this.tbBiasTagSize.Size = new System.Drawing.Size(259, 31);
-            this.tbBiasTagSize.TabIndex = 17;
-            this.tbBiasTagSize.Visible = false;
-            // 
-            // lbBiasTagSize
-            // 
-            this.lbBiasTagSize.AutoSize = true;
-            this.lbBiasTagSize.Location = new System.Drawing.Point(49, 204);
-            this.lbBiasTagSize.Name = "lbBiasTagSize";
-            this.lbBiasTagSize.Size = new System.Drawing.Size(236, 25);
-            this.lbBiasTagSize.TabIndex = 15;
-            this.lbBiasTagSize.Text = "Bias Bit Table Tag Size";
-            this.lbBiasTagSize.Visible = false;
             // 
             // groupBox2
             // 
@@ -326,11 +270,6 @@
         private System.Windows.Forms.TextBox tbMiss;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbBiasTagSize;
-        private System.Windows.Forms.TextBox tbBiasTagSize;
-        private System.Windows.Forms.Label lbNote;
-        private System.Windows.Forms.TextBox tbBitsInPC;
-        private System.Windows.Forms.Label lbNumBitsInPC;
     }
 }
 

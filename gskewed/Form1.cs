@@ -21,9 +21,8 @@ namespace gskewed
             tbTraceFileName.Text = @"Z:\Desktop\Fall 2016\arch\term project\parsed\art-100M_parsed.trace";
 
             cbMethod.SelectedIndex = 1;
-            tbBHTEnties.Text = "65536";
+            tbBHTEnties.Text = "16";
             tbGlobalHistSize.Text = "16";
-            tbBitsInPC.Text = "24";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,25 +44,32 @@ namespace gskewed
             //fire off on new thread 
 
 
-            Console.WriteLine(support_Classes.Operators.XOR("10010", "10", 4));
+            int numofPHTEntires = Convert.ToInt32(Math.Pow(2,Convert.ToInt32(tbBHTEnties.Text)));
+
+            if (Convert.ToInt32(tbBHTEnties.Text) < Convert.ToInt32(tbGlobalHistSize.Text))
+            {
+                MessageBox.Show("Global history bits must be less that PHT bits");
+                return;
+            }
+          
 
             support_Classes.Results res = new support_Classes.Results();
 
             switch (cbMethod.SelectedIndex)
             {
                 case 0:
-                    res = Predictors.GShare.run(Convert.ToInt32(tbBHTEnties.Text), Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
+                    res = Predictors.GShare.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
                 case 1:
-                    res = Predictors.Gselect.run(Convert.ToInt32(tbBHTEnties.Text), Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
+                    res = Predictors.Gselect.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
                 case 2:
                     break;
                 case 3:
-                    res = Predictors.AgreePredictor.run(Convert.ToInt32(tbBHTEnties.Text), Convert.ToInt32(tbGlobalHistSize.Text), Convert.ToInt32(tbBitsInPC.Text), Convert.ToInt32(tbBiasTagSize.Text), tbTraceFileName.Text);
+                    res = Predictors.AgreePredictor.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
                 case 4:
-                    res = Predictors.TwoLevelPredictorLocalHistory.run(Convert.ToInt32(tbBHTEnties.Text), Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
+                    res = Predictors.LocalHistory.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
                 case 5:
                     res = Predictors.AlwaysTake.run(tbTraceFileName.Text);
@@ -80,27 +86,11 @@ namespace gskewed
 
         }
 
-        private void cbMethod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbMethod.SelectedIndex == 3)
-            {
-                //show extra options
-                lbNumBitsInPC.Show();
-                lbBiasTagSize.Show();
-                lbNote.Show();
-                tbBiasTagSize.Show();
-                tbBitsInPC.Show();
-            }
-            else
-            {
-                //hide them
-                lbNumBitsInPC.Hide();
-                lbBiasTagSize.Hide();
-                lbNote.Hide();
-                tbBiasTagSize.Hide();
-                tbBitsInPC.Hide();
 
-            }
+        private void tbBHTEnties_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
     }
 }

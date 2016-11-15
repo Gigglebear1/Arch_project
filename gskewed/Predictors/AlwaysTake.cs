@@ -16,7 +16,7 @@ namespace gskewed.Predictors
             int missPredic = 0;
             int totalPredictions = 0;
 
-            //open file make sure to read only one line at a time. becuase the file is toooooooo BBIIIGGG
+            //open file make sure to read only one line at PC time. becuase the file is toooooooo BBIIIGGG
 
             string line;
             // Read the file and display it line by line.

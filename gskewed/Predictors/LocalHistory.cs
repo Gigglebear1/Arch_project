@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace gskewed.Predictors
 {
-    class TwoLevelPredictorLocalHistory
+    class LocalHistory
     {
         const int INIT_BHT_VAL = 2;
 
@@ -15,12 +15,12 @@ namespace gskewed.Predictors
         {
             support_Classes.Results results = new support_Classes.Results();
             support_Classes.PredictionHistoryTable BHT = new support_Classes.PredictionHistoryTable(BHTSize, INIT_BHT_VAL);
-            support_Classes.BranchHistoryReg history = new support_Classes.BranchHistoryReg(historySize, 0);
 
+            int logOfEneries = (int)Math.Log(BHTSize, 2);
             int missPredic = 0;
             int totalPredictions = 0;
 
-            //open file make sure to read only one line at a time. becuase the file is toooooooo BBIIIGGG
+            //open file make sure to read only one line at PC time. becuase the file is toooooooo BBIIIGGG
 
             string line;
             // Read the file and display it line by line.
@@ -28,23 +28,29 @@ namespace gskewed.Predictors
             {
                 while ((line = file.ReadLine()) != null)
                 {
-                    String pc = line.Split(new char[0])[0];
+                    String PC = Convert.ToString(Convert.ToInt64(line.Split(new char[0])[0], 16), 2);
                     String pathResult = line.Split(new char[0])[1];
 
-                    long hist = Convert.ToInt64(history.getHistory(),2);
+                    if (PC.Length > logOfEneries)
+                    {
+                        PC = PC.Substring(PC.Length - logOfEneries);
+                    }
+                    else
+                    {
+                        PC = PC.PadRight(logOfEneries, '0');
+                    }
 
                     //look at the PHT entry and get the prediction 
-                    bool prediction = BHT.shoudTake(hist);
+                    bool prediction = BHT.shoudTake(Convert.ToInt64(PC,2));
                     bool actual = pathResult.Equals("T");
+
+                    BHT.editEntry(Convert.ToInt64(PC, 2), actual);
 
                     // update miss and totalpredictions
                     if (prediction != actual)
                         missPredic += 1;
 
                     //update the PHT entry
-                    BHT.editEntry(hist, actual);
-                    history.pushHistory(Convert.ToInt32(actual));
-
                     totalPredictions += 1;
                 }
             }

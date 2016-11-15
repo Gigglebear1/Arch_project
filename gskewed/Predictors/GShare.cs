@@ -21,7 +21,7 @@ namespace gskewed.Predictors
             int missPredic = 0;
             int totalPredictions = 0;
 
-            //open file make sure to read only one line at a time. becuase the file is toooooooo BBIIIGGG
+            //open file make sure to read only one line at PC time. becuase the file is toooooooo BBIIIGGG
 
             string line;
             // Read the file and display it line by line.
@@ -29,18 +29,18 @@ namespace gskewed.Predictors
             {
                 while ((line = file.ReadLine()) != null)
                 {
-                    String pc = line.Split(new char[0])[0];
+                    String pc = Convert.ToString(Convert.ToInt64(line.Split(new char[0])[0], 16), 2);
                     String pathResult = line.Split(new char[0])[1];
 
                     //concat pc and globalHistory and get number 
-                    long concat = support_Classes.Operators.XOR(pc, history.getHistory(), logOfEneries);
+                    long XOR = support_Classes.Operators.XOR(pc, history.getHistory(), logOfEneries);
 
                     //look at the PHT entry and get the prediction 
-                    bool prediction = PHT.shoudTake(concat);
+                    bool prediction = PHT.shoudTake(XOR);
                     bool actual = pathResult.Equals("T");
 
                     //update the PHT entry
-                    PHT.editEntry(concat, actual);
+                    PHT.editEntry(XOR, actual);
                     history.pushHistory(Convert.ToInt32(actual));
 
                     // update miss and totalpredictions
