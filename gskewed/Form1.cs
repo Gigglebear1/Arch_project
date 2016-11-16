@@ -64,6 +64,7 @@ namespace gskewed
                     res = Predictors.Gselect.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
                 case 2:
+                    //res = Predictors.GSkew.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
                     break;
                 case 3:
                     res = Predictors.AgreePredictor.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text);
