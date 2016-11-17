@@ -11,15 +11,15 @@ namespace gskewed.support_Classes
     {
 
         private int[] table;
-        private const int COUNTER_MAX = 4;
+        private int COUNTER_MAX = 4;
         private const int COUNTER_MIN = 0;
         private const int ShouldTakeValue = 2;
         private int BHTSize;
-        private int p;
 
-        public PredictionHistoryTable(int size, int initValue = 2)
+        public PredictionHistoryTable(int size, int initValue = 2, int bitCounter = 4)
         {
             BHTSize = size;
+            COUNTER_MAX = (int)Math.Pow(2,bitCounter);
             table = new int[size];
             for (int i = 0; i < size; ++i)
                 table[i] = initValue;

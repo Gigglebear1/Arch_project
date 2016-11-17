@@ -11,10 +11,10 @@ namespace gskewed.Predictors
     {
         const int INIT_BHT_VAL = 2;
 
-        public static support_Classes.Results run(int BHTSize, int historySize, String filePath)
+        public static support_Classes.Results run(int BHTSize, int historySize,int bitCounter, String filePath)
         {
             support_Classes.Results results = new support_Classes.Results();
-            support_Classes.PredictionHistoryTable BHT = new support_Classes.PredictionHistoryTable(BHTSize, INIT_BHT_VAL);
+            support_Classes.PredictionHistoryTable BHT = new support_Classes.PredictionHistoryTable(BHTSize, INIT_BHT_VAL, bitCounter);
 
             int logOfEneries = (int)Math.Log(BHTSize, 2);
             int missPredic = 0;

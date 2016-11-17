@@ -16,11 +16,10 @@ C:\Users\Blake Burton\Source\Repos\Arch_project\gskewed\obj\Release\gskewed.Form
 C:\Users\Blake Burton\Source\Repos\Arch_project\gskewed\obj\Release\gskewed.Properties.Resources.resources
 C:\Users\Blake Burton\Source\Repos\Arch_project\gskewed\obj\Release\gskewed.csproj.GenerateResource.Cache
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\bin\Release\gskewed.exe.config
-C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.exe
-C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.pdb
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\bin\Release\gskewed.exe
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\bin\Release\gskewed.pdb
-C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.csprojResolveAssemblyReference.cache
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.Form1.resources
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.Properties.Resources.resources
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.csproj.GenerateResource.Cache
+C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.exe
+C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.pdb

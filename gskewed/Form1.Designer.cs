@@ -84,14 +84,15 @@
             "Gshare",
             "Gselect ",
             "Gskewed",
-            "Agree Predictor",
-            "Local history",
+            "1-bit Local History",
+            "2-bit Local History",
             "Always Take",
             "Always Dont Take"});
             this.cbMethod.Location = new System.Drawing.Point(463, 139);
             this.cbMethod.Name = "cbMethod";
             this.cbMethod.Size = new System.Drawing.Size(259, 33);
             this.cbMethod.TabIndex = 3;
+            this.cbMethod.SelectedIndexChanged += new System.EventHandler(this.cbMethod_SelectedIndexChanged);
             // 
             // tbGlobalHistSize
             // 
@@ -99,6 +100,7 @@
             this.tbGlobalHistSize.Name = "tbGlobalHistSize";
             this.tbGlobalHistSize.Size = new System.Drawing.Size(259, 31);
             this.tbGlobalHistSize.TabIndex = 4;
+            this.tbGlobalHistSize.TextChanged += new System.EventHandler(this.tbGlobalHistSize_TextChanged);
             // 
             // tbBHTEnties
             // 
