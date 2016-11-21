@@ -70,7 +70,7 @@ namespace gskewed
                     res = await Task.Run(() => Predictors.Gselect.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text));
                     break;
                 case 2:
-                    res = await Task.Run(() => Predictors.GSkew.run(Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text));
+                    res = await Task.Run(() => Predictors.GSkew.run(Convert.ToInt32(tbBHTEnties.Text),Convert.ToInt32(tbGlobalHistSize.Text), tbTraceFileName.Text));
                     break;
                 case 3:
                     res = await Task.Run(() => Predictors.LocalHistory.run(numofPHTEntires, Convert.ToInt32(tbGlobalHistSize.Text), 1, tbTraceFileName.Text));
@@ -100,29 +100,29 @@ namespace gskewed
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        private void cbMethod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbMethod.SelectedIndex == 2)
-            {
-                tbBHTEnties.Enabled = false;
-                double ghSize = String.IsNullOrEmpty(tbGlobalHistSize.Text) ? 0.0 : (double)Convert.ToInt32(tbGlobalHistSize.Text);
-                tbBHTEnties.Text = Math.Ceiling((ghSize+24) / 3).ToString();
-            }
-            else
-            {
-                tbBHTEnties.Enabled = true;
-            }
-        }
+        //private void cbMethod_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cbMethod.SelectedIndex == 2)
+        //    {
+        //        tbBHTEnties.Enabled = false;
+        //        double ghSize = String.IsNullOrEmpty(tbGlobalHistSize.Text) ? 0.0 : (double)Convert.ToInt32(tbGlobalHistSize.Text);
+        //        tbBHTEnties.Text = Math.Ceiling((ghSize+24) / 3).ToString();
+        //    }
+        //    else
+        //    {
+        //        tbBHTEnties.Enabled = true;
+        //    }
+        //}
 
-        private void tbGlobalHistSize_TextChanged(object sender, EventArgs e)
-        {
-            if (cbMethod.SelectedIndex == 2)
-            {
-                double ghSize = String.IsNullOrEmpty(tbGlobalHistSize.Text) ? 0.0 : (double)Convert.ToInt32(tbGlobalHistSize.Text);
-                tbBHTEnties.Text = Math.Ceiling((ghSize + 24) / 3).ToString();
-            }
+        //private void tbGlobalHistSize_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (cbMethod.SelectedIndex == 2)
+        //    {
+        //        double ghSize = String.IsNullOrEmpty(tbGlobalHistSize.Text) ? 0.0 : (double)Convert.ToInt32(tbGlobalHistSize.Text);
+        //        tbBHTEnties.Text = Math.Ceiling((ghSize + 24) / 3).ToString();
+        //    }
 
-        }
+        //}
 
     }
 }

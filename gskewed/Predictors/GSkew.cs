@@ -11,15 +11,15 @@ namespace gskewed.Predictors
     {
         //that explains why nothing was returned to UI (-_-)
 
-        public static support_Classes.Results run(int ghSize, String filePath)
+        public static support_Classes.Results run(int bitsPerTable,int ghSize, String filePath)
         {
             support_Classes.Results results = new support_Classes.Results();
 
-            int n =(int)Math.Ceiling((double)(ghSize+24) / 3);
+            int numAddrBits = bitsPerTable - ghSize;
 
-            support_Classes.PredictionHistoryTable t0 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2,n));
-            support_Classes.PredictionHistoryTable t1 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, n));
-            support_Classes.PredictionHistoryTable t2 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, n));
+            support_Classes.PredictionHistoryTable t0 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, bitsPerTable));
+            support_Classes.PredictionHistoryTable t1 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, bitsPerTable));
+            support_Classes.PredictionHistoryTable t2 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, bitsPerTable));
             support_Classes.BranchHistoryReg history = new support_Classes.BranchHistoryReg(ghSize, 0);
 
             int missPredic = 0;
@@ -34,10 +34,11 @@ namespace gskewed.Predictors
                 while ((line = file.ReadLine()) != null)
                 {
                     String pc = Convert.ToString(Convert.ToInt64(line.Split(new char[0])[0], 16), 2);
+                    pc = pc.Substring(pc.Length - numAddrBits);
                     String pathResult = line.Split(new char[0])[1];
 
 
-                    Tuple<long,long,long> hasedIndexes = theHasher(pc + history.getHistory(), n);
+                    Tuple<long, long, long> hasedIndexes = theHasher(pc + history.getHistory(), (int)Math.Floor((double)bitsPerTable/3));
 
                     bool predict0 = t0.shoudTake(hasedIndexes.Item1);
                     bool predict1 = t1.shoudTake(hasedIndexes.Item2);

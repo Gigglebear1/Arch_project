@@ -23,3 +23,4 @@ C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.csproj.GenerateResource.Cache
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.exe
 C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.pdb
+C:\Users\Blake Burton\Documents\GitHub\Arch_project\gskewed\obj\Release\gskewed.csprojResolveAssemblyReference.cache
