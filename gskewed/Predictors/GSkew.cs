@@ -11,8 +11,11 @@ namespace gskewed.Predictors
     {
         //that explains why nothing was returned to UI (-_-)
 
-        public static support_Classes.Results run(int bitsPerTable,int ghSize, String filePath)
+        public static support_Classes.Results run(int bitsForAll,int ghSize, String filePath)
         {
+
+
+            int bitsPerTable = bitsForAll / 3;
             support_Classes.Results results = new support_Classes.Results();
 
             int numAddrBits = bitsPerTable - ghSize;
