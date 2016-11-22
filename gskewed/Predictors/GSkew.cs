@@ -14,15 +14,14 @@ namespace gskewed.Predictors
         public static support_Classes.Results run(int bitsForAll,int ghSize, String filePath)
         {
 
-
             int bitsPerTable = bitsForAll / 3;
             support_Classes.Results results = new support_Classes.Results();
 
-            int numAddrBits = bitsPerTable - ghSize;
+            int numAddrBits = bitsForAll - ghSize;
 
-            support_Classes.PredictionHistoryTable t0 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, bitsPerTable));
-            support_Classes.PredictionHistoryTable t1 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, bitsPerTable));
-            support_Classes.PredictionHistoryTable t2 = new support_Classes.PredictionHistoryTable((int)Math.Pow(2, bitsPerTable));
+            support_Classes.PredictionHistoryTable t0 = new support_Classes.PredictionHistoryTable((long)Math.Pow(2, bitsPerTable));
+            support_Classes.PredictionHistoryTable t1 = new support_Classes.PredictionHistoryTable((long)Math.Pow(2, bitsPerTable));
+            support_Classes.PredictionHistoryTable t2 = new support_Classes.PredictionHistoryTable((long)Math.Pow(2, bitsPerTable));
             support_Classes.BranchHistoryReg history = new support_Classes.BranchHistoryReg(ghSize, 0);
 
             int missPredic = 0;
@@ -37,11 +36,17 @@ namespace gskewed.Predictors
                 while ((line = file.ReadLine()) != null)
                 {
                     String pc = Convert.ToString(Convert.ToInt64(line.Split(new char[0])[0], 16), 2);
+
+                    if (pc.Length - numAddrBits < 0)
+                    {
+                        pc = pc.PadLeft(numAddrBits - pc.Length, '0');
+                    }
+
                     pc = pc.Substring(pc.Length - numAddrBits);
                     String pathResult = line.Split(new char[0])[1];
 
 
-                    Tuple<long, long, long> hasedIndexes = theHasher(pc + history.getHistory(), (int)Math.Floor((double)bitsPerTable/3));
+                    Tuple<long, long, long> hasedIndexes = theHasher(pc + history.getHistory(), bitsPerTable);
 
                     bool predict0 = t0.shoudTake(hasedIndexes.Item1);
                     bool predict1 = t1.shoudTake(hasedIndexes.Item2);
@@ -50,6 +55,7 @@ namespace gskewed.Predictors
                     //look at the PHT entry and get the prediction 
                     bool prediction = predict0 & predict1 | predict1 & predict2 | predict0 & predict2;
                     bool actual = pathResult.Equals("T");
+                    history.pushHistory(Convert.ToInt32(actual));
 
 
                     //update tables IF overal prediction is wrong

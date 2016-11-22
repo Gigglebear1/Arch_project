@@ -14,9 +14,9 @@ namespace gskewed.support_Classes
         private int COUNTER_MAX = 4;
         private const int COUNTER_MIN = 0;
         private const int ShouldTakeValue = 2;
-        private int BHTSize;
+        private long BHTSize;
 
-        public PredictionHistoryTable(int size, int initValue = 2, int bitCounter = 4)
+        public PredictionHistoryTable(long size, int initValue = 2, int bitCounter = 4)
         {
             BHTSize = size;
             COUNTER_MAX = (int)Math.Pow(2,bitCounter);
